@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 import Greeting from './Greeeting';
 import InputForm from './InputForm';
 import QuickPrompts from './QuickPrompts';
@@ -12,6 +12,10 @@ interface WelcomeProps {
 }
 
 function Welcome({ activeTab, prompt, setPrompt, onGenerate }: WelcomeProps) {
+	useEffect(() => {
+		setPrompt('');
+	}, [activeTab]);
+
 	return (
 		<div className="h-full flex flex-col justify-center max-w-4xl m-auto p-4 sm:pb-8">
 			<Greeting />
