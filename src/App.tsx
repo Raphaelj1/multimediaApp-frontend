@@ -1,10 +1,11 @@
 import './App.css';
+import Homepage from './pages/Homepage';
 
 function App() {
 	return (
-		<>
-			<p className="text-center text-red-500">Click on the Vite and React logos to learn more</p>
-		</>
+		<div className="sm:bg-gray-100 flex h-screen">
+			<Homepage />
+		</div>
 	);
 }
 

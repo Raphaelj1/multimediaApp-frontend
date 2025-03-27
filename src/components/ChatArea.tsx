@@ -1,0 +1,50 @@
+import { FormEvent, useEffect } from 'react';
+import InputForm from './InputForm';
+import ChatBox from './ChatBox';
+import { ActiveTab, ChatHistory } from '../pages/Homepage';
+
+interface ChatAreaProps {
+	activeTab: ActiveTab;
+	prompt: string;
+	setPrompt: (prompt: string) => void;
+	onGenerate: (e: FormEvent) => void;
+	chatHistory: ChatHistory;
+}
+
+function ChatArea({
+	activeTab,
+	prompt,
+	setPrompt,
+	onGenerate,
+	chatHistory,
+}: ChatAreaProps) {
+	useEffect(() => {
+		setPrompt('');
+	}, [activeTab]);
+
+	return (
+		<div className="h-full flex flex-col items-center">
+			<div className="w-full flex-1 m-auto overflow-y-auto">
+				<div className="w-full max-w-4xl flex flex-col gap-2 p-5 m-auto">
+					{!!chatHistory[activeTab] &&
+						chatHistory[activeTab].map((chat) => (
+							<ChatBox role={chat.role} content={chat.content} />
+						))}
+				</div>
+			</div>
+
+			<div className="w-full max-w-4xl p-4">
+				<InputForm
+					activeTab={activeTab}
+					isNewChat={false}
+					onGenerate={onGenerate}
+					prompt={prompt}
+					setPrompt={setPrompt}
+					loading={false}
+				/>
+			</div>
+		</div>
+	);
+}
+
+export default ChatArea;
