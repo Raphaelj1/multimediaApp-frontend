@@ -9,3 +9,7 @@
 .bg-primary {
     background-color: #ffffff;    
 }
+
+.h-screen-d {
+    height: 100dvh;
+}
