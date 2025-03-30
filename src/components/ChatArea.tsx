@@ -25,7 +25,7 @@ function ChatArea({ activeTab, prompt, setPrompt, onGenerate, chatHistory }: Cha
 	return (
 		<div className="h-full flex flex-col items-center">
 			<div className="w-full flex-1 m-auto py-4 overflow-y-auto">
-				<div className="w-full max-w-4xl flex flex-col gap-2 p-2 sm:p-5 m-auto">
+				<div className="w-full h-full max-w-4xl flex flex-col gap-2 p-2 sm:p-5 m-auto">
 					{!!chatHistory[activeTab] &&
 						chatHistory[activeTab].map((chat) => (
 							<ChatBox
