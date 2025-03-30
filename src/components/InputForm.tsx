@@ -21,10 +21,10 @@ function InputForm({
 	isNewChat,
 }: InputFormProps) {
 	const placeholders: { [key in TabKey]: string } = {
-		text: 'Enter text prompt...',
-		audio: 'Enter audio prompt (e.g., "rain sound")...',
-		video: 'Enter video prompt...',
-		image: 'Enter image prompt...',
+		text: 'What\'s on your mind?',
+		audio: 'Type something and I\'ll say it...',
+		video: 'Describe the video you want to create...',
+		image: 'Imagine something and describe it...',
 	};
 
 	return (
@@ -45,7 +45,7 @@ function InputForm({
 					value={prompt}
 					onChange={(e) => setPrompt(e.target.value)}
 					placeholder={placeholders[activeTab]}
-					className="w-full flex-1 text-sm p-4 outline-none resize-none rounded-lg placeholder:text-sm focus:outline-none"
+					className="w-full flex-1 text-base sm:text-sm p-4 outline-none resize-none rounded-lg placeholder:text-sm focus:outline-none"
 				></textarea>
 				<div className="flex items-center justify-end pb-4">
 					<button
