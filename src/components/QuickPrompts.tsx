@@ -1,26 +1,31 @@
 import { useState } from 'react';
 import { RotateCwIcon } from 'lucide-react';
 import { shuffleArray } from '../utils/shuffleArray';
+import { ActiveTab } from '../pages/Homepage';
 
 interface QuickPromptsProps {
 	setPrompt: (text: string) => void;
-	activeTab: string;
+	activeTab: ActiveTab;
+}
+type InitialPrompts = {
+	[K in ActiveTab]: string[];
 }
 
 function QuickPrompts({ setPrompt, activeTab }: QuickPromptsProps) {
-	const initialPrompts: { [key: string]: string[] } = {
+	const initialPrompts: InitialPrompts = {
 		text: ['Write a short story', 'Describe a sunset', 'Tell me a joke'],
-		audio: ['Rain sound', 'Thunderstorm'],
+		audio: ['Hi, I am your Assistant', 'Thunderstorm! Muhahaha'],
 		video: ['Stormy night', 'Sunrise over mountains'],
 		image: ['A cat', 'A forest'],
 	};
 
-	const [prompts, setPrompts] = useState(initialPrompts);
+	const [prompts, setPrompts] = useState<InitialPrompts>(initialPrompts);
 
 	const randomizePrompts = () => {
 		setPrompts((prevPrompts) => {
-			const newPrompts: { [key: string]: string[] } = {};
-			for (const key in prevPrompts) {
+			const newPrompts: InitialPrompts = {} as InitialPrompts;
+			const keys = Object.keys(prevPrompts) as (keyof InitialPrompts)[]
+			for (const key of keys) {
 				newPrompts[key] = shuffleArray(prevPrompts[key]);
 			}
 			console.log(newPrompts)

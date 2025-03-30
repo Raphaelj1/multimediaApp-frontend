@@ -24,16 +24,16 @@ function ChatArea({
 
 	return (
 		<div className="h-full flex flex-col items-center">
-			<div className="w-full flex-1 m-auto overflow-y-auto">
-				<div className="w-full max-w-4xl flex flex-col gap-2 p-5 m-auto">
+			<div className="w-full flex-1 m-auto py-4 overflow-y-auto">
+				<div className="w-full max-w-4xl flex flex-col gap-2 p-2 sm:p-5 m-auto">
 					{!!chatHistory[activeTab] &&
 						chatHistory[activeTab].map((chat) => (
-							<ChatBox role={chat.role} content={chat.content} />
+							<ChatBox role={chat.role} content={chat.content} type={chat.type} key={chat.content} />
 						))}
 				</div>
 			</div>
 
-			<div className="w-full max-w-4xl p-4">
+			<div className="w-full max-w-4xl p-2 pt-1 sm:p-4 sm:pt-2">
 				<InputForm
 					activeTab={activeTab}
 					isNewChat={false}
