@@ -103,9 +103,11 @@ function Homepage() {
 				/>
 			</div>
 
-			<div className="flex-1">
+			<div className="flex-1 overflow-y-auto">
 				<div className="flex flex-col h-full bg-white rounded-2xl">
-					<Header activeTab={activeTab} setActiveTab={setActiveTab} />
+					<div className="sticky top-0 sm:static">
+						<Header activeTab={activeTab} setActiveTab={setActiveTab} />
+					</div>
 
 					<div className="flex-1 overflow-y-auto">
 						{inUse ? (

@@ -66,7 +66,7 @@ function Header({ activeTab, setActiveTab }: HeaderProps) {
 	};
 
 	return (
-		<div className="sticky top-0 flex items-center gap-2 h-18 py-4 px-2 sm:static sm:px-5 border-b border-neutral-300">
+		<div className="flex items-center gap-2 h-18 py-4 px-2 sm:px-5 border-b border-neutral-300">
 			<button className="p-2 cursor-pointer sm:hidden" onClick={() => setIsNavOpen(true)}>
 				<LucideMenu color="#444" size={'24px'} strokeWidth={1} />
 			</button>
