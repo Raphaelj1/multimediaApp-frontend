@@ -62,6 +62,7 @@ function Header({ activeTab, setActiveTab }: HeaderProps) {
 
 	const handleTabClick = (tab: ActiveTab) => {
 		setActiveTab(tab);
+		setIsNavOpen(false)
 	};
 
 	return (
