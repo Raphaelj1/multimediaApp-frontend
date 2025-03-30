@@ -4,11 +4,11 @@ function getWelcomeMessage(): string {
 	if (hour >= 5 && hour < 12) {
 		return 'Good Morning! ☀️'
 	} else if (hour >= 12 && hour < 17) {
-		return 'Hot Afternoon, Innit!'
+		return 'Hot Afternoon, Innit! 😎'
 	} else if (hour >= 17 && hour <= 22) {
-		return 'Hey there!'
+		return 'Hey there! 👋'
 	} else {
-		return 'Hi Friend!'
+		return 'Hi Friend! 👋'
 	}
 }
 
