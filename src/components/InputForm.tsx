@@ -21,10 +21,19 @@ function InputForm({
 	isNewChat,
 }: InputFormProps) {
 	const placeholders: { [key in TabKey]: string } = {
-		text: 'What\'s on your mind?',
-		audio: 'Type something and I\'ll say it...',
+		text: "What's on your mind?",
+		audio: "Type something and I'll say it...",
 		video: 'Describe the video you want to create...',
 		image: 'Imagine something and describe it...',
+	};
+
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === 'Enter' && !e.shiftKey) {
+			e.preventDefault();
+			if (prompt.trim()) {
+				onGenerate(e);
+			}
+		}
 	};
 
 	return (
@@ -36,14 +45,12 @@ function InputForm({
 				</div>
 			)}
 
-			<form
-				onSubmit={onGenerate}
-				className="w-full bg-white rounded-2xl"
-			>
+			<form onSubmit={onGenerate} className="w-full bg-white rounded-2xl">
 				<textarea
 					rows={3}
 					value={prompt}
 					onChange={(e) => setPrompt(e.target.value)}
+					onKeyDown={handleKeyDown}
 					placeholder={placeholders[activeTab]}
 					className="w-full flex-1 text-base sm:text-sm p-4 outline-none resize-none rounded-lg placeholder:text-sm focus:outline-none"
 				></textarea>
