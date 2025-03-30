@@ -31,7 +31,7 @@ function Homepage() {
 		// 		? (JSON.parse(savedHistory) as ChatHistory)
 		// 		: { text: [], image: [], audio: [], video: [] };
 		// } catch {
-			return { text: [], image: [], audio: [], video: [] };
+		return { text: [], image: [], audio: [], video: [] };
 		// }
 	});
 
@@ -75,7 +75,12 @@ function Homepage() {
 					...prevChatHistory,
 					[activeTab]: [
 						...prevChatHistory[activeTab],
-						{ role: 'system', content: 'I am having trouble connecting to the server. Please check your internet connection and try again.', type: 'text' },
+						{
+							role: 'system',
+							content:
+								'I am having trouble connecting to the server. Please check your internet connection and try again.',
+							type: 'text',
+						},
 					],
 				}));
 			})

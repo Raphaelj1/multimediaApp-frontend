@@ -1,4 +1,4 @@
-import { FormEvent, useEffect } from 'react';
+import { FormEvent, useEffect, useRef } from 'react';
 import InputForm from './InputForm';
 import ChatBox from './ChatBox';
 import { ActiveTab, ChatHistory } from '../pages/Homepage';
@@ -11,13 +11,13 @@ interface ChatAreaProps {
 	chatHistory: ChatHistory;
 }
 
-function ChatArea({
-	activeTab,
-	prompt,
-	setPrompt,
-	onGenerate,
-	chatHistory,
-}: ChatAreaProps) {
+function ChatArea({ activeTab, prompt, setPrompt, onGenerate, chatHistory }: ChatAreaProps) {
+	const messagesEndRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+	}, [chatHistory]);
+
 	useEffect(() => {
 		setPrompt('');
 	}, [activeTab]);
@@ -28,8 +28,14 @@ function ChatArea({
 				<div className="w-full max-w-4xl flex flex-col gap-2 p-2 sm:p-5 m-auto">
 					{!!chatHistory[activeTab] &&
 						chatHistory[activeTab].map((chat) => (
-							<ChatBox role={chat.role} content={chat.content} type={chat.type} key={chat.content} />
+							<ChatBox
+								role={chat.role}
+								content={chat.content}
+								type={chat.type}
+								key={chat.content}
+							/>
 						))}
+					<div ref={messagesEndRef} />
 				</div>
 			</div>
 
