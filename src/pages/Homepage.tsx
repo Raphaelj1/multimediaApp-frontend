@@ -94,7 +94,7 @@ function Homepage() {
 	};
 
 	return (
-		<div className="sm:flex w-full max-h-full overflow-hidden">
+		<div className="flex w-full max-h-full overflow-hidden">
 			<div className="hidden w-fit sm:block">
 				<Sidebar
 					activeTab={activeTab}

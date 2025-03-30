@@ -63,7 +63,7 @@ function Sidebar({ activeTab, setActiveTab, onNavToHome }: SidebarProps) {
 	const collapsedTabClasses = 'px-2 pr-3 py-1.5 rounded-md cursor-pointer hover:bg-gray-200';
 
 	return (
-		<div className={`w-${isExpanded ? '80' : '17'} px-4 h-screen`}>
+		<div className={`${isExpanded ? 'w-80' : 'w-17'} px-4 h-screen`}>
 			<div className="flex items-center justify-between h-18 py-4 mb-8 border-b border-neutral-300">
 				{isExpanded ? (
 					<>
