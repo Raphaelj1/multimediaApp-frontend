@@ -103,7 +103,7 @@ function Homepage() {
 				/>
 			</div>
 
-			<div className="sm:flex-1">
+			<div className="flex-1">
 				<div className="flex flex-col bg-white rounded-2xl h-full">
 					<Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
