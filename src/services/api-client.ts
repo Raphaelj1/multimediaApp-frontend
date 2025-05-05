@@ -11,7 +11,7 @@ interface GenerateResponse {
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const apiClient = axios.create({
-	baseURL: baseUrl,
+	baseURL: baseUrl ?? 'http://localhost:5000',
 });
 
 async function fetchOutput(prompt: string, type: string): Promise<GenerateResponse> {
@@ -26,4 +26,4 @@ async function fetchOutput(prompt: string, type: string): Promise<GenerateRespon
 	}
 }
 
-export default fetchOutput
+export default fetchOutput;

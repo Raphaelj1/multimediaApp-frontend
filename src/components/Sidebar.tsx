@@ -26,22 +26,22 @@ interface TabItem {
 const tabItems: TabItem[] = [
 	{
 		id: 'text',
-		label: 'Text generation',
+		label: 'Write with AI',
 		icon: <LetterText color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'image',
-		label: 'Text to image',
+		label: 'Image From Text',
 		icon: <ImageIcon color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'audio',
-		label: 'Text to audio',
+		label: 'Generate Audio',
 		icon: <AudioLines color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'video',
-		label: 'Text to video',
+		label: 'Video from Text',
 		icon: <VideoIcon color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 ];
