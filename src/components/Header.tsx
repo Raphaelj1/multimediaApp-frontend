@@ -16,22 +16,22 @@ interface TabItem {
 const tabItems: TabItem[] = [
 	{
 		id: 'text',
-		label: 'Text generation',
+		label: 'Write with AI',
 		icon: <LetterText color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'image',
-		label: 'Text to image',
+		label: 'Image from Text',
 		icon: <ImageIcon color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'audio',
-		label: 'Text to audio',
+		label: 'Generate Audio',
 		icon: <AudioLines color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 	{
 		id: 'video',
-		label: 'Text to video',
+		label: 'Video from Text',
 		icon: <VideoIcon color="#525252" size={'20px'} strokeWidth={1} />,
 	},
 ];
@@ -41,19 +41,19 @@ function Header({ activeTab, setActiveTab }: HeaderProps) {
 
 	const headers: { [key: string]: { title: string; desc: string } } = {
 		text: {
-			title: 'Text Generation',
+			title: 'Write with AI',
 			desc: 'Generate creative text from prompts',
 		},
 		image: {
-			title: 'Text to Image',
+			title: 'Image from Text',
 			desc: 'Create images from text descriptions',
 		},
 		audio: {
-			title: 'Text to Audio',
+			title: 'Generate Audio',
 			desc: 'Generate short audio clips from text',
 		},
 		video: {
-			title: 'Text to Video',
+			title: 'Video from Text',
 			desc: 'Create short video clips from text descriptions',
 		},
 	};
